@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: app1
+  labels:
+    app: app1
+---
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: app1-sa
+  namespace: app1
+  annotations:
+    azure.workload.identity/client-id: "REPLACE_WITH_app1_workload_identity_client_id"
+  labels:
+    azure.workload.identity/use: "true"
